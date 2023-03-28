@@ -18,9 +18,31 @@ export const FilesPreview = styled.div`
 
 export const DragContainer = styled.div`
   padding: 20px 10px;
-  border: 2px solid ${(props) => props.theme.colors.text};
-  border-radius: 10px;
-  background-color: ${(props) => props.theme.colors.text};
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.text};
   text-align: center;
+  background-color: ${(props) => props.theme.colors.primary};
+  border: 2px dashed ${(props) => props.theme.colors.text};
+  border-radius: 10px;
+  cursor: pointer;
+`;
+
+export const SubmitButton = styled.button`
+  padding: 15px;
+  margin: auto;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 700;
+  color: ${(props) => props.theme.colors.text};
+  display: flex;
+  justify-content: center;
+  background: ${(props) => props.theme.colors.primary};
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
+export const ErrorFiles = styled.div`
+  color: ${(props) => props.theme.colors.background};
 `;

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
 import { useDropzone } from "react-dropzone";
-import { DragContainer, FilesPreview, IframeBox, Image } from "./styles";
+import {
+  DragContainer,
+  ErrorFiles,
+  FilesPreview,
+  IframeBox,
+  Image,
+  SubmitButton,
+} from "./styles";
 
 const Upload: React.FC = () => {
   const [file, setFile] = useState<any>();
@@ -40,18 +47,25 @@ const Upload: React.FC = () => {
     </div>
   );
 
-  console.log(file);
+  file && console.log(file);
 
   return (
     <>
       <DragContainer {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p>Drop some files here ...</p>
+        <p>Solte seu arquivo aqui ou click para seleciona-los ...</p>
       </DragContainer>
       <FilesPreview>{file?.preview ? Preview : ""}</FilesPreview>
-      <div>
-        {reject && <p>Os arquivos que você tentou enviar não são aceitos</p>}
-      </div>
+      <ErrorFiles>
+        {reject && (
+          <p>
+            O arquivo que você tentou enviar não são aceitos, note que apenas é
+            aceito um único arquivo podendo ter as seguintes extensões (.pdf,
+            .png, .jpg, .jpeg)
+          </p>
+        )}
+      </ErrorFiles>
+      {file && <SubmitButton>Enviar</SubmitButton>}
     </>
   );
 };

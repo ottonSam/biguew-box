@@ -11,7 +11,8 @@ export const Content = styled.div`
   width: 100%;
   max-width: 400px;
   margin: 30px;
-  background: ${(props) => props.theme.colors.primary};
-  border-radius: 4px;
+  background: #fff;
+  border: 2px solid ${(props) => props.theme.colors.border};
+  border-radius: 8px;
   padding: 20px;
 `;
