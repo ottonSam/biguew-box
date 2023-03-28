@@ -4,7 +4,7 @@ import { useDropzone } from "react-dropzone";
 import { DragContainer, FilesPreview, IframeBox, Image } from "./styles";
 
 const Upload: React.FC = () => {
-  const [file, setFile] = useState<any>({});
+  const [file, setFile] = useState<any>();
   const [fileType, setFileType] = useState<string>();
   const [reject, setReject] = useState<boolean>(false);
   const { getRootProps, getInputProps } = useDropzone({
@@ -33,9 +33,9 @@ const Upload: React.FC = () => {
   const Preview = (
     <div>
       {fileType === "application/pdf" ? (
-        <IframeBox title="preview" src={file.preview} />
+        <IframeBox title="preview" src={file?.preview} />
       ) : (
-        <Image alt="preview documento" src={file.preview} />
+        <Image alt="preview documento" src={file?.preview} />
       )}
     </div>
   );
@@ -48,7 +48,7 @@ const Upload: React.FC = () => {
         <input {...getInputProps()} />
         <p>Drop some files here ...</p>
       </DragContainer>
-      <FilesPreview>{file.preview ? Preview : ""}</FilesPreview>
+      <FilesPreview>{file?.preview ? Preview : ""}</FilesPreview>
       <div>
         {reject && <p>Os arquivos que você tentou enviar não são aceitos</p>}
       </div>
